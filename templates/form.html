@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form class="needs-validation" action="/form" method="post" novalidate>
+        <div class="form-group">
+            <input class="form-control" type="text" name="name" autocomplete="off" autofocus required placeholder="Name"/>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please type your name
+            </div>
+        </div>
+        <div class="form-group">
+            <select class="form-control custom-select" name="house" required>
+                <option disabled selected>House</option>
+                <option value="Gryffindor">Gryffindor</option>
+                <option value="Hufflepuff">Hufflepuff</option>
+                <option value="Ravenclaw">Ravenclaw</option>
+                <option value="Slytherin">Slytherin</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please select your house
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-radio">
+                <input class="custom-control-input" id="beater" type=radio name="position" value="Beater" required>
+                <label class="custom-control-label" for="beater">Beater</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input class="custom-control-input" id="chaser" type=radio name="position" value="Chaser" required>
+                <label class="custom-control-label" for="chaser">Chaser</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input class="custom-control-input" id="keeper" type=radio name="position" value="Keeper" required>
+                <label class="custom-control-label" for="keeper">Keeper</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input class="custom-control-input" id="seeker"type=radio name="position" value="Seeker" required>
+                <label class="custom-control-label" for="seeker">Seeker</label>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please select your position.
+                </div>
+            </div>
+            
+            
+        </div>
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+    </script>
+
+{% endblock %}
